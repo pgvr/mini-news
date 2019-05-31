@@ -12,11 +12,12 @@ export class DetailComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.newsItem = window.history.state.newsItem;
-    if (!this.newsItem) {
-      this.router.navigateByUrl('');
-    }
-    console.log(this.newsItem);
+    this.newsItem = JSON.parse(localStorage.getItem('newsItem'));
+    // this.newsItem = window.history.state.newsItem;
+    // if (!this.newsItem) {
+    //   this.router.navigateByUrl('');
+    // }
+    // console.log(this.newsItem);
   }
 
   goBack() {

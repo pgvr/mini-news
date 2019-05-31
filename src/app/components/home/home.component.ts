@@ -37,6 +37,8 @@ export class HomeComponent implements OnInit {
 
   navigateToDetail(newsItem: NewsItem) {
     console.log('navigate');
-    this.router.navigateByUrl('/detail', { state: { newsItem } });
+    // this.router.navigateByUrl('/detail', { state: { newsItem } });
+    localStorage.setItem('newsItem', JSON.stringify(newsItem));
+    this.router.navigateByUrl('/detail');
   }
 }
