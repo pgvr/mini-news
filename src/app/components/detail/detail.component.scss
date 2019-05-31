@@ -56,4 +56,15 @@ main {
       margin-bottom: 16px;
     }
   }
+
+  .bottom-button-container {
+    display: flex;
+    flex-direction: row;
+    :last-child {
+      margin-left: 8px;
+    }
+    :first-child {
+      margin-right: 8px;
+    }
+  }
 }

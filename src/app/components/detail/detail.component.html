@@ -37,11 +37,16 @@
     <h2 class="detail-news-title">{{ newsItem.title }}</h2>
     <p class="detail-news-text">{{ newsItem.description }}</p>
   </div>
-  <a
-    class="btn btn-primary"
-    [href]="newsItem.link"
-    role="button"
-    target="_blank"
-    >Keep Reading</a
-  >
+  <div class="bottom-button-container">
+    <button type="button" class="btn btn-secondary" (click)="goBack()">
+      Go Back
+    </button>
+    <a
+      class="btn btn-primary"
+      [href]="newsItem.link"
+      role="button"
+      target="_blank"
+      >Keep Reading</a
+    >
+  </div>
 </main>
