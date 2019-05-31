@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+* {
+  font-family: 'Roboto Mono', monospace;
+}
+
+body {
+  margin: 24px;
+}
+
+h1 {
+  font-size: 48px;
+  margin: 0;
+}

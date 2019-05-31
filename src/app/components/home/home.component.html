@@ -1,3 +1,25 @@
-<p>
-  home works!
-</p>
+<header>
+  <div class="title-profile-container">
+    <h1>News</h1>
+    <div class="profile-icon"></div>
+  </div>
+  <div class="category-container">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn" id="categoryDropdown" ngbDropdownToggle>
+        Category: {{ selectedCategory }}
+      </button>
+      <div ngbDropdownMenu aria-labelledby="categoryDropdown">
+        <button
+          *ngFor="let category of categories"
+          (click)="selectCategory(category)"
+          ngbDropdownItem
+        >
+          {{ category }}
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <!-- ngfor items and card component -->
+</main>
