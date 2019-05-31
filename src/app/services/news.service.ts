@@ -14,6 +14,7 @@ export class NewsService {
   ];
   baseUrl = 'https://api.rss2json.com/v1/api.json';
   apiKey = 'cdtj7svrzsylszvk9sczkvjx53uftv8gmita0n8p';
+
   constructor(private http: HttpClient) {}
 
   async getNews(): Promise<NewsItem[]> {
