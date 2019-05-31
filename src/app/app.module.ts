@@ -11,9 +11,10 @@ import {
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { NewsCardComponent } from './components/news-card/news-card.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, DetailComponent],
+  declarations: [AppComponent, HomeComponent, DetailComponent, NewsCardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
