@@ -22,4 +22,8 @@
 </header>
 <main>
   <!-- ngfor items and card component -->
+  <app-news-card
+    *ngFor="let newsItem of newsItems"
+    [newsItem]="newsItem"
+  ></app-news-card>
 </main>

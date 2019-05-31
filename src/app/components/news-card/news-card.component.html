@@ -1,3 +1,10 @@
-<p>
-  news-card works!
-</p>
+<div
+  class="card-container"
+  (click)="cardClick()"
+  [style.background]="backgroundUrl"
+>
+  <p class="source" [class.source-with-padding]="imagePresent()">
+    {{ newsItem.source }}
+  </p>
+  <p class="title">{{ newsItem.title }}</p>
+</div>

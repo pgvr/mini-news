@@ -1,0 +1,24 @@
+.card-container {
+  // max-height: 150px;
+  // min-width: 200px;
+  // max-width: 300px;
+  margin-bottom: 16px;
+  padding: 16px;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  // coming from figma
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  .source {
+    font-weight: 700;
+  }
+
+  .source-with-padding {
+    padding-top: 50px;
+  }
+}
+
+p {
+  color: #f2f2f2;
+}
