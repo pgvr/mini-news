@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
 import { NewsItem } from 'src/app/models/news-item';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,22 +15,28 @@ export class HomeComponent implements OnInit {
 
   loading: boolean;
 
-  newsItems: NewsItem[];
-
-  constructor(private newsService: NewsService) {}
+  constructor(public newsService: NewsService, private router: Router) {}
 
   ngOnInit() {
     this.selectCategory('All');
-    this.getNews();
+    if (this.newsService.newsItems.length === 0) {
+      this.getNews();
+    }
   }
 
   async getNews() {
+    console.log('getting news');
     this.loading = true;
-    this.newsItems = await this.newsService.getNews();
+    await this.newsService.getNews();
     this.loading = false;
   }
 
   selectCategory(category: string) {
     this.selectedCategory = category;
+  }
+
+  navigateToDetail(newsItem: NewsItem) {
+    console.log('navigate');
+    this.router.navigateByUrl('/detail', { state: { newsItem } });
   }
 }
