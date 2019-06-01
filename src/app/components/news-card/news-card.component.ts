@@ -21,19 +21,15 @@ export class NewsCardComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    this.backgroundUrl = this.sanitizer.bypassSecurityTrustStyle(
-      `linear-gradient(360deg, #000000 22.4%, rgba(0, 0, 0, 0) 100%), url(${this
-        .newsItem.thumbnail || this.newsItem.enclosure.link})`,
-    );
-  }
-
-  imagePresent(): boolean {
-    const thumbnailPresent: boolean =
-      this.newsItem.thumbnail !== undefined && this.newsItem.thumbnail !== '';
-    const enclosurePresent: boolean =
-      this.newsItem.enclosure.link !== undefined &&
-      this.newsItem.enclosure.link !== '';
-    return enclosurePresent || thumbnailPresent;
+    if (this.newsItem.urlToImage) {
+      this.backgroundUrl = this.sanitizer.bypassSecurityTrustStyle(
+        `linear-gradient(360deg, #000000 22.4%, rgba(0, 0, 0, 0) 100%), url(${
+          this.newsItem.urlToImage
+        })`,
+      );
+    } else {
+      this.backgroundUrl = '#333333';
+    }
   }
 
   cardClick() {

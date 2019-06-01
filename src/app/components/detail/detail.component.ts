@@ -53,6 +53,7 @@ export class DetailComponent implements OnInit, OnDestroy {
       .pipe(mapTo(true))
       .toPromise();
   }
+
   private slideOut(
     time: number,
   ): (AnimationStyleMetadata | AnimationAnimateMetadata)[] {
@@ -61,6 +62,7 @@ export class DetailComponent implements OnInit, OnDestroy {
       animate(`${time}ms ease`, style({ opacity: 0, transform: 'scale(0.5)' })),
     ];
   }
+
   private slideIn(
     time: number,
   ): (AnimationStyleMetadata | AnimationAnimateMetadata)[] {

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
 import { NewsItem } from 'src/app/models/news-item';
 import { Router } from '@angular/router';
+import { NewsCategory } from 'src/app/models/news-category';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  categories = ['All', 'Technology', 'Politics', 'Sports'];
+  categories: NewsCategory[] = [
+    { value: 'general' },
+    { value: 'business' },
+    { value: 'entertainment' },
+    { value: 'health' },
+    { value: 'science' },
+    { value: 'sports' },
+    { value: 'technology' },
+  ];
 
   selectedCategory: string;
 
@@ -18,7 +27,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(public newsService: NewsService, private router: Router) {}
 
   ngOnInit() {
-    this.selectCategory('All');
     if (this.newsService.newsItems.length === 0) {
       this.getNews();
     }
@@ -41,8 +49,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.loading = false;
   }
 
-  selectCategory(category: string) {
-    this.selectedCategory = category;
+  selectCategory(category: NewsCategory) {
+    this.newsService.selectedCategory = category;
+    this.getNews();
   }
 
   navigateToDetail(newsItem: NewsItem) {

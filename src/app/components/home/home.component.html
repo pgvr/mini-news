@@ -6,7 +6,7 @@
   <div class="category-container">
     <div ngbDropdown class="d-inline-block">
       <button class="btn" id="categoryDropdown" ngbDropdownToggle>
-        Category: {{ selectedCategory }}
+        Category: {{ newsService.selectedCategory.value }}
       </button>
       <div ngbDropdownMenu aria-labelledby="categoryDropdown">
         <button
@@ -14,7 +14,7 @@
           (click)="selectCategory(category)"
           ngbDropdownItem
         >
-          {{ category }}
+          {{ category.value }}
         </button>
       </div>
     </div>

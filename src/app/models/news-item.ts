@@ -1,18 +1,12 @@
-export interface NewsItem {
-  title: string;
-  pubDate: string;
-  link: string;
-  guid: string;
-  author: string;
-  thumbnail: string;
-  description: string;
-  content: string;
-  enclosure: NewsEnclosure;
-  categories: string[];
-  source: string;
-}
+import { NewsSource } from './news-source';
 
-export interface NewsEnclosure {
-  link: string;
-  type: string;
+export interface NewsItem {
+  source: NewsSource;
+  author: string;
+  title: string;
+  description: string;
+  url: string;
+  urlToImage: string;
+  publishedAt: string;
+  content: string;
 }

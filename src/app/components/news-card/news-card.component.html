@@ -3,8 +3,8 @@
   (click)="cardClick()"
   [style.background]="backgroundUrl"
 >
-  <p class="source" [class.source-with-padding]="imagePresent()">
-    {{ newsItem.source }}
+  <p class="source" [class.source-with-padding]="newsItem.urlToImage">
+    {{ newsItem.source.name }}
   </p>
   <p class="title">{{ newsItem.title }}</p>
 </div>

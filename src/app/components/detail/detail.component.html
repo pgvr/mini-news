@@ -27,16 +27,18 @@
     </div>
   </header>
   <main *ngIf="newsItem">
-    <div class="img-container">
-      <img [src]="newsItem.thumbnail || newsItem.enclosure.link" />
+    <div class="img-container" *ngIf="newsItem.urlToImage">
+      <img [src]="newsItem.urlToImage" />
       <div class="img-caption-container">
-        <span class="source-img-caption">{{ newsItem.source }}</span>
-        <span class="date-img-caption">{{ newsItem.pubDate }}</span>
+        <span class="source-img-caption">{{ newsItem.source.name }}</span>
+        <span class="date-img-caption">{{ newsItem.publishedAt | date }}</span>
       </div>
     </div>
     <div class="text-container">
       <h2 class="detail-news-title">{{ newsItem.title }}</h2>
-      <p class="detail-news-text">{{ newsItem.description }}</p>
+      <p class="detail-news-text">
+        {{ newsItem.content || newsItem.description }}
+      </p>
     </div>
     <div class="bottom-button-container">
       <button type="button" class="btn btn-secondary" (click)="goBack()">
@@ -44,7 +46,7 @@
       </button>
       <a
         class="btn btn-primary"
-        [href]="newsItem.link"
+        [href]="newsItem.url"
         role="button"
         target="_blank"
         >Keep Reading</a
