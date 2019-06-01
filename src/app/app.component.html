@@ -1,1 +1,11 @@
 <router-outlet></router-outlet>
+
+<ngb-alert
+  *ngIf="update.showAlert"
+  type="info"
+  #alert
+  (close)="update.closeAlert()"
+  (click)="update.reloadLocation()"
+>
+  <strong>New Version Available!</strong><br />Update Now
+</ngb-alert>

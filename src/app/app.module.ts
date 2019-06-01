@@ -7,12 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   NgbDropdownModule,
   NgbButtonsModule,
+  NgbAlertModule,
 } from '@ng-bootstrap/ng-bootstrap';
 /* Components */
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { NewsCardComponent } from './components/news-card/news-card.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,10 @@ import { NewsCardComponent } from './components/news-card/news-card.component';
     NgbDropdownModule,
     NgbButtonsModule,
     BrowserAnimationsModule,
+    NgbAlertModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
