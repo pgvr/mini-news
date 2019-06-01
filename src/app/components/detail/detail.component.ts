@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnDestroy,
+} from '@angular/core';
 import { NewsItem } from 'src/app/models/news-item';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
@@ -9,51 +16,14 @@ import {
   animate,
 } from '@angular/animations';
 
-export const slider = trigger('detailEnter', [
-  transition(':enter', [
-    style({
-      opacity: 1,
-      transform: 'scale(0) translateX(100%)',
-    }),
-    animate(
-      '600ms ease',
-      style({
-        opacity: 1,
-        transform: 'scale(1) translateX(0%)',
-      }),
-    ),
+const fadeEnterLeave = trigger('detailEnterLeave', [
+  transition('* => entering', [
+    style({ transform: 'translateX(100%)' }),
+    animate('600ms ease', style({ transform: 'translateX(0)' })),
   ]),
-  transition(':leave', [
-    style({
-      opacity: 1,
-      position: 'fixed',
-      width: '100%',
-      transform: 'scale(1)',
-    }),
-    animate(
-      '600ms ease',
-      style({
-        opacity: 0,
-        transform: 'scale(0)',
-      }),
-    ),
-  ]),
-]);
-
-const fadeIn = trigger('detailEnter', [
-  transition('* => *', [
-    query(
-      ':leave',
-      style({ position: 'absolute', left: 0, right: 0, opacity: 1 }),
-      { optional: true },
-    ),
-    query(
-      ':enter',
-      style({ position: 'absolute', left: 0, right: 0, opacity: 0 }),
-      { optional: true },
-    ),
-    query(':leave', animate('1s', style({ opacity: 0 })), { optional: true }),
-    query(':enter', animate('1s', style({ opacity: 1 })), { optional: true }),
+  transition('* => leaving', [
+    style({ transform: 'translateX(0)' }),
+    animate('600ms ease', style({ transform: 'translateX(100%)' })),
   ]),
 ]);
 
@@ -61,32 +31,41 @@ const fadeIn = trigger('detailEnter', [
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
-  animations: [],
+  animations: [fadeEnterLeave],
 })
-export class DetailComponent implements OnInit {
+export class DetailComponent implements OnInit, OnDestroy {
   public newsItem: NewsItem;
+  public animationState: 'entering' | 'leaving' | '' = '';
   constructor(private router: Router) {}
 
   ngOnInit() {
+    console.log('detail on init');
     this.newsItem = JSON.parse(localStorage.getItem('newsItem'));
-    // this.newsItem = window.history.state.newsItem;
-    // if (!this.newsItem) {
-    //   this.router.navigateByUrl('');
-    // }
-    // console.log(this.newsItem);
+    this.animationState = 'entering';
+  }
+
+  ngOnDestroy() {
+    this.animationState = 'leaving';
+    console.log('detail on destroy');
   }
 
   animStart(event) {
     console.log('Animation Started');
+    console.log(event);
     // do more stuff
   }
 
   animEnd(event) {
     console.log('Animation Ended');
+    console.log(event);
+    if (event.toState === 'leaving') {
+      history.back();
+    }
     // do more stuff
   }
 
   goBack() {
-    history.back();
+    // history.back();
+    this.animationState = 'leaving';
   }
 }

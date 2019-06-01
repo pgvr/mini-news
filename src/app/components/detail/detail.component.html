@@ -1,4 +1,9 @@
-<div class="detail-wrapper">
+<div
+  class="detail-wrapper"
+  [@detailEnterLeave]="animationState"
+  (@detailEnterLeave.start)="animStart($event)"
+  (@detailEnterLeave.done)="animEnd($event)"
+>
   <header>
     <div class="header-bar-container">
       <svg
