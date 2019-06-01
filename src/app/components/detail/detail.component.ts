@@ -11,34 +11,49 @@ import {
 
 export const slider = trigger('detailEnter', [
   transition(':enter', [
-    query(':enter', [
+    style({
+      opacity: 1,
+      transform: 'scale(0) translateX(100%)',
+    }),
+    animate(
+      '600ms ease',
+      style({
+        opacity: 1,
+        transform: 'scale(1) translateX(0%)',
+      }),
+    ),
+  ]),
+  transition(':leave', [
+    style({
+      opacity: 1,
+      position: 'fixed',
+      width: '100%',
+      transform: 'scale(1)',
+    }),
+    animate(
+      '600ms ease',
       style({
         opacity: 0,
         transform: 'scale(0)',
       }),
-      animate(
-        '600ms ease',
-        style({
-          opacity: 1,
-          transform: 'scale(1)',
-        }),
-      ),
-    ]),
+    ),
   ]),
-  transition(':leave', [
-    query(':leave', [
-      style({
-        opacity: 1,
-        transform: 'scale(1)',
-      }),
-      animate(
-        '600ms ease',
-        style({
-          opacity: 0,
-          transform: 'scale(0)',
-        }),
-      ),
-    ]),
+]);
+
+const fadeIn = trigger('detailEnter', [
+  transition('* => *', [
+    query(
+      ':leave',
+      style({ position: 'absolute', left: 0, right: 0, opacity: 1 }),
+      { optional: true },
+    ),
+    query(
+      ':enter',
+      style({ position: 'absolute', left: 0, right: 0, opacity: 0 }),
+      { optional: true },
+    ),
+    query(':leave', animate('1s', style({ opacity: 0 })), { optional: true }),
+    query(':enter', animate('1s', style({ opacity: 1 })), { optional: true }),
   ]),
 ]);
 
@@ -46,7 +61,7 @@ export const slider = trigger('detailEnter', [
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
-  animations: [slider],
+  animations: [],
 })
 export class DetailComponent implements OnInit {
   public newsItem: NewsItem;
@@ -59,6 +74,16 @@ export class DetailComponent implements OnInit {
     //   this.router.navigateByUrl('');
     // }
     // console.log(this.newsItem);
+  }
+
+  animStart(event) {
+    console.log('Animation Started');
+    // do more stuff
+  }
+
+  animEnd(event) {
+    console.log('Animation Ended');
+    // do more stuff
   }
 
   goBack() {
