@@ -17,8 +17,8 @@ import { NewsCardComponent } from './components/news-card/news-card.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     DetailComponent,
+    HomeComponent,
     NewsCardComponent,
   ],
   imports: [

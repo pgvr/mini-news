@@ -1,9 +1,4 @@
-<div
-  class="detail-wrapper"
-  [@detailEnterLeave]="animationState"
-  (@detailEnterLeave.start)="animStart($event)"
-  (@detailEnterLeave.done)="animEnd($event)"
->
+<div class="detail-wrapper" #detailContainer>
   <header>
     <div class="header-bar-container">
       <svg
@@ -36,7 +31,7 @@
       <img [src]="newsItem.thumbnail || newsItem.enclosure.link" />
       <div class="img-caption-container">
         <span class="source-img-caption">{{ newsItem.source }}</span>
-        <span class="date-img-caption">{{ newsItem.pubDate | date }}</span>
+        <span class="date-img-caption">{{ newsItem.pubDate }}</span>
       </div>
     </div>
     <div class="text-container">
