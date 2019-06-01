@@ -8,9 +8,9 @@ import { NewsResponse } from '../models/news-response';
 })
 export class NewsService {
   sources = [
-    'http://www.welt.de/?service=Rss',
-    'http://www.n-tv.de/23.rss',
-    'http://www.tagesschau.de/xml/rss2/',
+    'https://www.welt.de/?service=Rss',
+    'https://www.n-tv.de/23.rss',
+    'https://www.tagesschau.de/xml/rss2/',
   ];
   baseUrl = 'https://api.rss2json.com/v1/api.json';
   apiKey = 'cdtj7svrzsylszvk9sczkvjx53uftv8gmita0n8p';
