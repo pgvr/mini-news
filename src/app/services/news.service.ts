@@ -33,6 +33,10 @@ export class NewsService {
     for (const result of results) {
       for (const item of result.items) {
         item.source = result.feed.title;
+        if (item.source === 'tagesschau.de - Die Nachrichten der ARD') {
+          item.link = 'https:' + item.link.split(':')[1];
+          item.thumbnail = 'https:' + item.thumbnail.split(':')[1];
+        }
         items.push(item);
       }
     }
