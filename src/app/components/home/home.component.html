@@ -11,7 +11,7 @@
       <div ngbDropdownMenu aria-labelledby="categoryDropdown">
         <button
           *ngFor="let category of categories"
-          (click)="selectCategory(category)"
+          (click)="newsService.selectCategory(category)"
           ngbDropdownItem
         >
           {{ category.value }}
@@ -27,6 +27,15 @@
     [newsItem]="newsItem"
     (cardClickEvent)="navigateToDetail($event)"
   ></app-news-card>
+
+  <button
+    *ngIf="newsService.showLoadButton()"
+    type="button"
+    class="btn btn-primary"
+    (click)="newsService.loadMoreItems()"
+  >
+    Load More
+  </button>
 </main>
 
 <div>

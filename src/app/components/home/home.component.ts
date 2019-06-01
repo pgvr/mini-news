@@ -49,11 +49,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.loading = false;
   }
 
-  selectCategory(category: NewsCategory) {
-    this.newsService.selectedCategory = category;
-    this.getNews();
-  }
-
   navigateToDetail(newsItem: NewsItem) {
     console.log('navigate');
     localStorage.setItem('newsItem', JSON.stringify(newsItem));

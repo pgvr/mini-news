@@ -15,8 +15,17 @@ export class NewsService {
   public selectedCategory: NewsCategory;
   itemsPerPage = 20;
   currentPage = 1;
+  totalItemsInCategory: number;
+
   constructor(private http: HttpClient) {
     this.selectedCategory = { value: 'general' };
+  }
+
+  selectCategory(category: NewsCategory) {
+    this.selectedCategory = category;
+    this.currentPage = 1;
+    this.newsItems = [];
+    this.getNews();
   }
 
   async getNews(): Promise<NewsItem[]> {
@@ -28,7 +37,21 @@ export class NewsService {
         }&pageSize=${this.itemsPerPage}&page=${this.currentPage}`,
       )
       .toPromise();
-    this.newsItems = req.articles;
+    this.newsItems.push(...req.articles);
+    this.totalItemsInCategory = req.totalResults;
+    // if empty show toast 'these are all news for now'
     return req.articles;
+  }
+
+  loadMoreItems() {
+    this.currentPage++;
+    this.getNews();
+  }
+
+  showLoadButton(): boolean {
+    console.log(this.totalItemsInCategory);
+    const totalItems = this.currentPage * this.itemsPerPage;
+    console.log(totalItems);
+    return totalItems < this.totalItemsInCategory;
   }
 }
