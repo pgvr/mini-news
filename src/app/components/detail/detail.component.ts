@@ -29,7 +29,7 @@ import { NewsItem } from 'src/app/models/news-item';
 export class DetailComponent implements OnInit, OnDestroy {
   public newsItem: NewsItem;
 
-  readonly ANIMATION_TIME = 500;
+  readonly ANIMATION_TIME = 300;
   @ViewChild('detailContainer', { static: true }) el: ElementRef;
   animation;
   player;
@@ -49,7 +49,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.animation = this.builder.build(this.slideOut(this.ANIMATION_TIME));
     this.player = this.animation.create(this.el.nativeElement, {});
     this.player.play();
-    return timer(this.ANIMATION_TIME)
+    return timer(this.ANIMATION_TIME - 100)
       .pipe(mapTo(true))
       .toPromise();
   }
