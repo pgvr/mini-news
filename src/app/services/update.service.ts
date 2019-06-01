@@ -5,7 +5,7 @@ import { SwUpdate } from '@angular/service-worker';
   providedIn: 'root',
 })
 export class UpdateService {
-  showAlert: boolean;
+  public showAlert: boolean;
   constructor(private swUpdate: SwUpdate) {
     this.swUpdate.available.subscribe(evt => {
       this.showAlert = true;

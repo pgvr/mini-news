@@ -53,23 +53,6 @@ export class DetailComponent implements OnInit, OnDestroy {
       .pipe(mapTo(true))
       .toPromise();
   }
-
-  // private slideOut(
-  //   time: number,
-  // ): (AnimationStyleMetadata | AnimationAnimateMetadata)[] {
-  //   return [
-  //     style({ transform: 'translateX(0)' }),
-  //     animate(`${time}ms ease`, style({ transform: 'translateX(100%)' })),
-  //   ];
-  // }
-  // private slideIn(
-  //   time: number,
-  // ): (AnimationStyleMetadata | AnimationAnimateMetadata)[] {
-  //   return [
-  //     style({ transform: 'translateX(100%)' }),
-  //     animate(`${time}ms ease`, style({ transform: 'translateX(0)' })),
-  //   ];
-  // }
   private slideOut(
     time: number,
   ): (AnimationStyleMetadata | AnimationAnimateMetadata)[] {
