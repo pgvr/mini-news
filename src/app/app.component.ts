@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from './services/news.service';
+import { RouterOutlet } from '@angular/router';
+import { slider } from './animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [slider],
 })
 export class AppComponent implements OnInit {
-  title = 'mini-news';
-  constructor(private newsService: NewsService) {}
-  ngOnInit() {
-    this.getNews();
-  }
-
-  async getNews() {
-    const results = await this.newsService
-      .getNews()
-      .catch(err => console.error(err));
+  constructor() {}
+  ngOnInit() {}
+  prepareRoute(outlet: RouterOutlet) {
+    return (
+      outlet &&
+      outlet.activatedRouteData &&
+      // tslint:disable-next-line: no-string-literal
+      outlet.activatedRouteData['animation']
+    );
   }
 }

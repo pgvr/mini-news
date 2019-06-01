@@ -1,3 +1,8 @@
+.card-container:hover {
+  transform: scale(1.05);
+  transition: 100ms;
+}
+
 .card-container {
   margin-bottom: 16px;
   padding: 16px;

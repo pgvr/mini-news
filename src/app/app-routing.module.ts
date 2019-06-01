@@ -8,10 +8,12 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: HomeComponent,
+    data: { animation: 'HomePage' },
   },
   {
     path: 'detail',
     component: DetailComponent,
+    data: { animation: 'DetailPage' },
   },
   {
     path: '**',
