@@ -29,7 +29,7 @@ export class NewsService {
     { value: 'science' },
     { value: 'tech' },
   ];
-  loading: boolean;
+  public loading: boolean;
 
   selectedCategory: NewsCategory;
   constructor(private http: HttpClient) {

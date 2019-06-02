@@ -22,11 +22,14 @@
 </header>
 <main>
   <!-- ngfor items and card component -->
-  <app-news-card
-    *ngFor="let newsItem of newsService.newsItems"
-    [newsItem]="newsItem"
-    (cardClickEvent)="navigateToDetail($event)"
-  ></app-news-card>
+  <ng-container *ngIf="!newsService.loading; else loading">
+    <app-news-card
+      *ngFor="let newsItem of newsService.newsItems"
+      [newsItem]="newsItem"
+      (cardClickEvent)="navigateToDetail($event)"
+    ></app-news-card>
+  </ng-container>
+  <ng-template #loading>Loading News...</ng-template>
 </main>
 
 <div>
