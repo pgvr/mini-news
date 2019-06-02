@@ -20,6 +20,7 @@ export class NewsService {
   apiKey = 'cdtj7svrzsylszvk9sczkvjx53uftv8gmita0n8p';
   newsItems: NewsItem[] = [];
   public scroll: number;
+  itemsPerPage = 5; // default is 10 from api
   categories: NewsCategory[] = [
     { value: 'general' },
     { value: 'politics' },
@@ -42,7 +43,9 @@ export class NewsService {
     const requests = sources.map(source =>
       this.http
         .get<NewsResponse>(
-          `${this.baseUrl}?api_key=${this.apiKey}&rss_url=${source}`,
+          `${this.baseUrl}?api_key=${this.apiKey}&rss_url=${source}&count=${
+            this.itemsPerPage
+          }`,
         )
         .toPromise(),
     );
