@@ -27,7 +27,10 @@
     </div>
   </header>
   <main *ngIf="newsItem">
-    <div class="img-container">
+    <div
+      class="img-container"
+      *ngIf="newsItem.thumbnail || newsItem.enclosure.link"
+    >
       <img [src]="newsItem.thumbnail || newsItem.enclosure.link" />
       <div class="img-caption-container">
         <span class="source-img-caption">{{ newsItem.source }}</span>

@@ -39,6 +39,14 @@ export class DetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     console.log('detail on init');
     this.newsItem = JSON.parse(localStorage.getItem('newsItem'));
+    this.newsItem.content = this.newsItem.content.replace(
+      /<\/?[^>]+(>|$)/g,
+      '',
+    );
+    this.newsItem.description = this.newsItem.description.replace(
+      /<\/?[^>]+(>|$)/g,
+      '',
+    );
     //
     this.animation = this.builder.build(this.slideIn(this.ANIMATION_TIME));
     this.player = this.animation.create(this.el.nativeElement, {});
