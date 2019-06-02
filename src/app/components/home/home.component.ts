@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
 import { NewsItem } from 'src/app/models/news-item';
 import { Router } from '@angular/router';
+import { NewsCategory } from 'src/app/models/news-category';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  categories = ['All', 'Technology', 'Politics', 'Sports'];
-
-  selectedCategory: string;
-
-  loading: boolean;
-
   constructor(public newsService: NewsService, private router: Router) {}
 
-  ngOnInit() {
-    this.selectCategory('All');
-    if (this.newsService.newsItems.length === 0) {
-      this.getNews();
-    }
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     if (this.newsService.scroll && this.newsService.scroll > 0) {
@@ -34,15 +24,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.newsService.scroll = window.scrollY;
   }
 
-  async getNews() {
-    console.log('getting news');
-    this.loading = true;
-    await this.newsService.getNews();
-    this.loading = false;
-  }
-
-  selectCategory(category: string) {
-    this.selectedCategory = category;
+  selectCategory(category: NewsCategory) {
+    this.newsService.selectCategory(category);
   }
 
   navigateToDetail(newsItem: NewsItem) {
