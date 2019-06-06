@@ -4,7 +4,7 @@ import { UpdateService } from './services/update.service';
 import { NewsService } from './services/news.service';
 // declare ga as a function to set and sent the events
 // tslint:disable-next-line: ban-types
-declare let gtag: Function;
+declare let ga: Function;
 
 @Component({
   selector: 'app-root',
@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
     // subscribe to router events and send page views to Google Analytics
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        gtag('set', 'page', event.urlAfterRedirects);
-        gtag('send', 'pageview');
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
       }
     });
   }
