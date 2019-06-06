@@ -20,7 +20,7 @@ export class NewsService {
   apiKey = 'cdtj7svrzsylszvk9sczkvjx53uftv8gmita0n8p';
   newsItems: NewsItem[] = [];
   public scroll: number;
-  itemsPerPage = 5; // default is 10 from api
+  itemsPerPage = 10; // default is 10 from api
   categories: NewsCategory[] = [
     { value: 'general' },
     { value: 'politics' },
