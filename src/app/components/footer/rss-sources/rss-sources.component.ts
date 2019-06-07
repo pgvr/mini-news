@@ -25,4 +25,8 @@ export class RssSourcesComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  goBack() {
+    history.back();
+  }
 }
