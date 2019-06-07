@@ -22,6 +22,7 @@ import { PrivacyComponent } from './components/footer/privacy/privacy.component'
 import { RssSourcesComponent } from './components/footer/rss-sources/rss-sources.component';
 import { ContributionsComponent } from './components/footer/contributions/contributions.component';
 import { ImpressumComponent } from './components/footer/impressum/impressum.component';
+import { FooterHeaderComponent } from './components/footer/footer-header/footer-header.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ImpressumComponent } from './components/footer/impressum/impressum.comp
     RssSourcesComponent,
     ContributionsComponent,
     ImpressumComponent,
+    FooterHeaderComponent,
   ],
   imports: [
     BrowserModule,
