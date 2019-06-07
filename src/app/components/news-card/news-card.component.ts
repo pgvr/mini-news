@@ -6,11 +6,20 @@ import {
   SafeUrl,
   SafeStyle,
 } from '@angular/platform-browser';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-news-card',
   templateUrl: './news-card.component.html',
   styleUrls: ['./news-card.component.scss'],
+  animations: [
+    trigger('fadeInHome', [
+      transition('void => *', [
+        style({ transform: 'translateY(100%)', opacity: 0 }),
+        animate('200ms', style({ transform: 'translateY(0)', opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
 export class NewsCardComponent implements OnInit {
   @Input() newsItem: NewsItem;

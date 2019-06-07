@@ -2,6 +2,7 @@
   class="card-container"
   (click)="cardClick()"
   [style.background]="backgroundUrl"
+  @fadeInHome
 >
   <p class="source" [class.source-with-padding]="imagePresent()">
     {{ newsItem.source }}

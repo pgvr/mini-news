@@ -3,6 +3,7 @@ import { NewsService } from 'src/app/services/news.service';
 import { NewsItem } from 'src/app/models/news-item';
 import { Router } from '@angular/router';
 import { NewsCategory } from 'src/app/models/news-category';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
