@@ -17,6 +17,7 @@ import { DetailComponent } from './components/detail/detail.component';
 import { NewsCardComponent } from './components/news-card/news-card.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { environment } from '../environments/environment';
     DetailComponent,
     HomeComponent,
     NewsCardComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
