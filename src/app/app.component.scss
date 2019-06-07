@@ -1,3 +1,8 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
 ngb-alert {
   position: fixed;
   bottom: 24px;

@@ -5,8 +5,10 @@
 }
 
 body {
+  display: flex;
   margin: 24px;
   color: #333333;
+  min-height: calc(100vh - 48px);
 }
 
 h1 {
