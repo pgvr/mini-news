@@ -1,27 +1,16 @@
-# MiniNews
+# RSS Tiles
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
+This is a minimalistic RSS news reader which I built over a free weekend, although I might implement more features over time.
 
-## Development server
+So far it only features German sources which I handpicked for a few categories (so yes it's biased).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## API
 
-## Code scaffolding
+This project makes use of an rss --> json [API](https://rss2json.com).
+Many APIs that directly deliver news are either very limited for the free tier or outright too expensive for a small project like this.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Development
 
-## Build
+You can clone this repo and install the dependencies with an `npm install`. After the installation finishes run `ng serve -o` to start the app locally.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To access the API you need to create an account to get an API key (its free!). Then you can add news sources of your liking.
