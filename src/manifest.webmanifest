@@ -1,6 +1,6 @@
 {
-  "name": "Minimal News",
-  "short_name": "Miews",
+  "name": "RSS Tiles",
+  "short_name": "Tiles",
   "theme_color": "#333333",
   "background_color": "#ffffff",
   "display": "standalone",
