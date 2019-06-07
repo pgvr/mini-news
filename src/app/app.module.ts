@@ -9,6 +9,7 @@ import {
   NgbButtonsModule,
   NgbAlertModule,
 } from '@ng-bootstrap/ng-bootstrap';
+import { GtagModule } from 'angular-gtag';
 /* Components */
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -35,6 +36,7 @@ import { environment } from '../environments/environment';
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
+    GtagModule.forRoot({ trackingId: 'UA-100079341-2', trackPageviews: true }),
   ],
   providers: [],
   bootstrap: [AppComponent],
