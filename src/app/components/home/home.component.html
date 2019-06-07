@@ -1,11 +1,11 @@
 <header>
   <div class="title-profile-container">
-    <h1>RSS Tiles</h1>
+    <h1>rss tiles</h1>
   </div>
   <div class="category-container">
     <div ngbDropdown class="d-inline-block">
       <button class="btn" id="categoryDropdown" ngbDropdownToggle>
-        Category: {{ newsService.selectedCategory.value }}
+        category: {{ newsService.selectedCategory.value }}
       </button>
       <div ngbDropdownMenu aria-labelledby="categoryDropdown">
         <button
@@ -28,5 +28,5 @@
       (cardClickEvent)="navigateToDetail($event)"
     ></app-news-card>
   </ng-container>
-  <ng-template #loading>Loading News...</ng-template>
+  <ng-template #loading>loading news...</ng-template>
 </main>
