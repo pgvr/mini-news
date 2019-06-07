@@ -1,3 +1,31 @@
-<p>
-  rss-sources works!
-</p>
+<h4>RSS Sources</h4>
+
+<h6>General</h6>
+<ul>
+  <li *ngFor="let link of rssSources.generalSources">{{ link }}</li>
+</ul>
+
+<h6>Economy</h6>
+<ul>
+  <li *ngFor="let link of rssSources.economySources">{{ link }}</li>
+</ul>
+
+<h6>Politics</h6>
+<ul>
+  <li *ngFor="let link of rssSources.politicSources">{{ link }}</li>
+</ul>
+
+<h6>Science</h6>
+<ul>
+  <li *ngFor="let link of rssSources.scienceSources">{{ link }}</li>
+</ul>
+
+<h6>Tech</h6>
+<ul>
+  <li *ngFor="let link of rssSources.techSources">{{ link }}</li>
+</ul>
+
+<h6>Sport</h6>
+<ul>
+  <li *ngFor="let link of rssSources.sportSources">{{ link }}</li>
+</ul>
