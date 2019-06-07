@@ -18,6 +18,9 @@ import { NewsCardComponent } from './components/news-card/news-card.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FooterComponent } from './components/footer/footer.component';
+import { PrivacyComponent } from './components/footer/privacy/privacy.component';
+import { RssSourcesComponent } from './components/footer/rss-sources/rss-sources.component';
+import { ContributionsComponent } from './components/footer/contributions/contributions.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeComponent,
     NewsCardComponent,
     FooterComponent,
+    PrivacyComponent,
+    RssSourcesComponent,
+    ContributionsComponent,
   ],
   imports: [
     BrowserModule,
