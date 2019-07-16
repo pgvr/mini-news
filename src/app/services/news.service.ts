@@ -22,18 +22,18 @@ export class NewsService {
   public scroll: number;
   itemsPerPage = 10; // default is 10 from api
   categories: NewsCategory[] = [
-    { value: 'general' },
-    { value: 'politics' },
-    { value: 'economy' },
+    { value: 'allgemein' },
+    { value: 'politik' },
+    { value: 'wirtschaft' },
     { value: 'sport' },
-    { value: 'science' },
+    { value: 'wissenschaft' },
     { value: 'tech' },
   ];
   public loading: boolean;
 
   selectedCategory: NewsCategory;
   constructor(private http: HttpClient) {
-    this.selectCategory({ value: 'general' });
+    this.selectCategory({ value: 'allgemein' });
   }
 
   async getNews(): Promise<NewsItem[]> {
@@ -44,7 +44,7 @@ export class NewsService {
       this.http
         .get<NewsResponse>(
           `${this.baseUrl}?api_key=${this.apiKey}&rss_url=${source}&count=${
-            this.itemsPerPage
+          this.itemsPerPage
           }`,
         )
         .toPromise(),
@@ -77,15 +77,15 @@ export class NewsService {
 
   getSourcesForCategory(category: NewsCategory): string[] {
     switch (category.value) {
-      case 'general':
+      case 'allgemein':
         return generalSources;
-      case 'politics':
+      case 'politik':
         return politicSources;
-      case 'economy':
+      case 'wirtschaft':
         return economySources;
       case 'sport':
         return sportSources;
-      case 'science':
+      case 'wissenschaft':
         return scienceSources;
       case 'tech':
         return techSources;

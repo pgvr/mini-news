@@ -1,18 +1,15 @@
 <header>
   <div class="title-profile-container">
     <h1>rss tiles</h1>
+    <p><i>news ohne schnörkel</i> | <a (click)="open(infoModal)">infos zur app</a></p>
   </div>
   <div class="category-container">
     <div ngbDropdown class="d-inline-block">
       <button class="btn" id="categoryDropdown" ngbDropdownToggle>
-        category: {{ newsService.selectedCategory.value }}
+        kategorie: {{ newsService.selectedCategory.value }}
       </button>
       <div ngbDropdownMenu aria-labelledby="categoryDropdown">
-        <button
-          *ngFor="let category of newsService.categories"
-          (click)="selectCategory(category)"
-          ngbDropdownItem
-        >
+        <button *ngFor="let category of newsService.categories" (click)="selectCategory(category)" ngbDropdownItem>
           {{ category.value }}
         </button>
       </div>
@@ -22,11 +19,24 @@
 <main>
   <!-- ngfor items and card component -->
   <ng-container *ngIf="!newsService.loading; else loading">
-    <app-news-card
-      *ngFor="let newsItem of newsService.newsItems"
-      [newsItem]="newsItem"
-      (cardClickEvent)="navigateToDetail($event)"
-    ></app-news-card>
+    <app-news-card *ngFor="let newsItem of newsService.newsItems" [newsItem]="newsItem"
+      (cardClickEvent)="navigateToDetail($event)"></app-news-card>
   </ng-container>
   <ng-template #loading>loading news...</ng-template>
 </main>
+
+<ng-template #infoModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Info</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Mein Name ist Patrick Göler von Ravensburg und ich bin Wirtschaftsinformatik-Student in Mannheim.</p>
+    <p>Diese App ist das Ergebnis eines Wochenend-Projekts mit dem Ziel aktuelles Geschehen schnell erfassen zu können.
+    </p>
+    <p>Die News werden aus ein paar ausgesuchten RSS Feeds gezogen und dargestellt.</p>
+    <p>Mein Github findet man hier: <a href="https://github.com/pgvr" target="_blank">Github</a></p>
+  </div>
+</ng-template>

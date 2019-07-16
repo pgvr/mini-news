@@ -1,3 +1,3 @@
 export interface NewsCategory {
-  value: 'general' | 'politics' | 'economy' | 'sport' | 'science' | 'tech';
+  value: 'allgemein' | 'politik' | 'wirtschaft' | 'sport' | 'wissenschaft' | 'tech';
 }

@@ -8,6 +8,7 @@ import {
   NgbDropdownModule,
   NgbButtonsModule,
   NgbAlertModule,
+  NgbModalModule,
 } from '@ng-bootstrap/ng-bootstrap';
 /* Components */
 import { AppComponent } from './app.component';
@@ -34,7 +35,7 @@ import { FooterHeaderComponent } from './components/footer/footer-header/footer-
     RssSourcesComponent,
     ContributionsComponent,
     ImpressumComponent,
-    FooterHeaderComponent,
+    FooterHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +43,7 @@ import { FooterHeaderComponent } from './components/footer/footer-header/footer-
     HttpClientModule,
     NgbDropdownModule,
     NgbButtonsModule,
+    NgbModalModule,
     BrowserAnimationsModule,
     NgbAlertModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -49,6 +51,6 @@ import { FooterHeaderComponent } from './components/footer/footer-header/footer-
     }),
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
