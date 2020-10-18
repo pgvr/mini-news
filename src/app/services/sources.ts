@@ -39,4 +39,5 @@ export const techSources = [
   'https://rss.golem.de/rss.php?feed=ATOM1.0',
   'https://www.faz.net/rss/aktuell/technik-motor',
   'https://www.welt.de/feeds/section/wirtschaft/webwelt.rss',
+  'https://tarnkappe.info/feed/',
 ];
